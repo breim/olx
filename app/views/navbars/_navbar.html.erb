@@ -27,7 +27,7 @@
       <% else %>
       <li>
         <div class="navbar-btn">
-          <%= link_to "Inserir anúncio", new_product_path, class: 'btn btn-warning' %>
+          <%= link_to "#{icon('plus')} Inserir anúncio".html_safe, new_product_path, class: 'btn btn-warning' %>
           <%= link_to "Entrar", new_user_session_path , class: "btn btn-primary" %>
         </div>
       </li>
