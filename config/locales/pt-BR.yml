@@ -248,67 +248,9 @@ pt-BR:
         password_confirmation: "Confirmação da senha"
         image: "Selecione a imagem para seu perfil"
         about: "Uma breve descriçao sobre você, para dar credibilidade ao seu curson"
-      graduation:
-        name: 'Nome da graduação'
-        university_id: 'Universidade'
-      course:
-        name: "Nome do curso"
-        semester: "Semestre"
-        major_id: "Faculdade da graduação"
-        value: 'Valor a cobrar pelo curso'
-        invisible: 'Não exibir curso para usuários' 
-        end_date: 'Data final da assinatura dos usuários'
-        payment_content: 'Texto exibido para assiantura usuário'
-      course_graduation:
-        graduation_id: 'Graduação'
-      content:
-        name: "Nome do conteúdo"
-      content_files:
-        name: "Nome do arquivo"
-        file: "Arquivo"
-      concept:
-        name: "Nome do conceito"
-        description: "Descrição"
-        content_id: "Conteúdo"
-        fiat: "Ordem"
-        payment: "O Conceito é pago ?"
-      topic:
-        name: "Título"
-        description: "Descrição"
-      post:
-        content: "Texto"
-        company_id: "Empresa"
-        youtube_url: "Link do youtube"
-      university:
-       name: 'Nome da faculdade'
-       observation: 'Observação'
-       image: 'Logo da faculdade'
-      invitation:
-        company_id: "Empresa participante"
-      meetup:
-        state: "Estado"
-        city: "Cidade"
-      member:
-        user_id: "Membro"
-        position_id: "Cargo"
-      pull:
-        name: "Nome do conteúdo"
-        file: "Arquivo"
-        course_id: "Curso"
-        classification: "Classificação do arquivo"
-      feedback:
-        name: "Seu nome"
-        email: "E-mail"
-        message: "Mensagem"
-      setting:
-        payment: 'Usuários pagam assinaturas ?'
-        price: 'Preço da assinatura'
-      room:
-        title: 'Título da aula'
-        local: 'Local da aula'
-        day: 'Dia da aula'
-        hour: 'Hora da aula'
-        price: 'Preço cobrado pela aula'
+      product:
+        title: 'Insira o título do anúncio'
+        price: 'Preço'
         content: 'Descrição'
   helpers:
     page_entries_info:
