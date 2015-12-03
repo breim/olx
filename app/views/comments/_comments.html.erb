@@ -1,0 +1,21 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Usuário</th>
+      <th>Comentário</th>
+      <th>Data</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr id="comment_<%= comment.id %>">
+      	<td><%= comment.user.name %></td>
+      	<td><%= comment.content %></td>
+      	<td><%= comment.created_at.localtime.strftime('%d/%m/%Y - %H:%M') %></td>
+        <td><%= link_to 'Deletar', comment, method: :delete, remote: true %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

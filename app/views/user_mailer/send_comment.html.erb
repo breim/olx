@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  Olá <%= @salesman_name %>
+  ======================================
+  O usuário <%= @buyer_name %> (<%= @buyer_email %> ) - <%= @buyer_phone %>
+  Encaminhou um seguinte comentário no seu produto <a href="http://0.0.0.0:3000/products/@product.id" target="_blank"><%= @product.title %></a>
+  
+  <%= @comment.content.html_safe %>
+  
+  Obrigado, 
+  
+  Equipe XPO 
+</body>
+</html>

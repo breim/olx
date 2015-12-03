@@ -1,0 +1,22 @@
+{
+  "name": "Minha aplicação OLX",
+  "description": "Sistema de venda entre pessoas fisicas",
+  "main": "",
+  "moduleType": [],
+  "authors": [
+    "Henrique Breim"
+  ],
+  "license": "MIT",
+  "homepage": "http://estudar.com.br/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "latest"
+  }
+}
