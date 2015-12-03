@@ -7,6 +7,7 @@ gem 'sendgrid'
 gem 'figaro'
 gem 'font-awesome-sass', '~> 4.3.0'
 gem 'brdinheiro'
+gem 'bootstrap_form'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

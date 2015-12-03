@@ -2,6 +2,7 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import 'products';
+@import 'rails_bootstrap_forms';
 
 body {
   padding-top: 60px;
@@ -10,3 +11,8 @@ body {
 p {
     white-space: nowrap;
 }  
+
+label.required:after {
+  content:" *";
+  color: #d9534f;
+}
