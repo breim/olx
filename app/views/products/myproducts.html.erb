@@ -1,0 +1,27 @@
+<div class="container">
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Título</th>
+        <th>Preço</th>
+        <th>Data</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @products.each do |product| %>
+      <tr id="product">
+        <td><%= link_to image_tag(product.image.url(:thumb)), product, class: 'img-responsive' %></td>
+      	<td><%= link_to product.title, product %></td>
+      	<td><%= product.price %></td>
+      	<td><%= product.created_at.localtime.strftime('%d/%m/%Y - %H:%M') %></td>
+        <td><%= link_to 'Editar', edit_product_path(product) %></td>
+        <td><%= link_to 'Deletar', product, method: :delete %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
