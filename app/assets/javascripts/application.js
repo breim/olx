@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap/dist/js/bootstrap
 //= require gridalicious
+//= require notify
 //= require_tree .
