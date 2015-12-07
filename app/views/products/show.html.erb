@@ -20,27 +20,25 @@
     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
       <h3><span class="label label-success">R$ <%= @product.price %></span></h3>
 
-
       <div class="panel panel-primary">
         <div class="panel-heading"></div>
         <div class="panel-body">
           <div class="text-muted">
-            <h4><%= icon('user') %> <%= @product.user.name %></h4>
-            <h4><%= icon('phone') %> <%= @product.user.phone %></h4>
+            <h4><%= icon('user') %> <%= @product.user.try(:name) %></h4>
+            <h4><%= icon('phone') %> <%= @product.user.try(:phone) %></h4>
 
             <legend class="text-muted">Enviar mensagem</legend>
-            <%=form_for(Comment.new, url: comments_path, method: :post, remote: true) do |f| %>
-            <%= f.text_area :content, class: 'form-control', rows: 3 %>
-            <%= f.hidden_field :product_id, value: @product.id %>
-            <br/>
-            <%= f.submit 'Enviar', class: 'btn btn-default pull-right' %>
+
+            <% unless current_user.present? %>
+              <%= link_to "Faça o login para enviar uma mensagem", new_user_session_path, class: 'btn btn-default btn-block' %>
+            <% else %>
+              <%= form_for(Comment.new, url: comments_path, method: :post, remote: true) do |f| %>
+                <%= f.text_area :content, class: 'form-control', rows: 3 %>
+                <%= f.hidden_field :product_id, value: @product.id %>
+                <br/>
+                <%= f.submit 'Enviar', class: 'btn btn-default pull-right' %>
+              <% end %>
             <% end %>
-
-
-
-            <div id='comments'>
-             <%= render 'comments/comments' %>
-           </div>
 
          </div>
        </div>
