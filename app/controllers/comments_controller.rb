@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+	before_action :authenticate_user!
+	
 	def create
 		@product = Product.find(params[:comment][:product_id])
 		@comment = Comment.new(comment_params)
@@ -6,7 +8,6 @@ class CommentsController < ApplicationController
 		@comment.product_id = @product.id
 		respond_to do |format|
 			if @comment.save
-				@comments = @product.comments
 				UserMailer.send_comment(@comment).deliver_later
 				format.js {}
 			else
