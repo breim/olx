@@ -13,6 +13,11 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">  </ul>
       <ul class="nav navbar-nav navbar-right">
+      <li>
+        <div class="navbar-btn">
+          <%= link_to "#{icon('plus')} Inserir anúncio".html_safe, new_product_path, class: 'btn btn-warning' %>
+        </div>
+      </li>
       <% if current_user %>
         <li class="dropdown">
          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -27,7 +32,6 @@
       <% else %>
       <li>
         <div class="navbar-btn">
-          <%= link_to "#{icon('plus')} Inserir anúncio".html_safe, new_product_path, class: 'btn btn-warning' %>
           <%= link_to "Entrar", new_user_session_path , class: "btn btn-primary" %>
         </div>
       </li>
