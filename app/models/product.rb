@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
 	# Relations
 	belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
 	# Validations
 	validates :title, :price, presence: true
