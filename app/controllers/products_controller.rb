@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @comments = @product.comments.order('created_at desc')
+    session[:previous_url] = request.fullpath
   end
 
   # GET /products/new
@@ -59,9 +59,14 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to myproducts_products_path, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def myproducts
+    params[:page] = 1 unless params[:page].present?
+    @products = Product.where(user_id: current_user.id).order("created_at desc").offset((params[:page].to_i-1) * 200).limit(200)
   end
 
   private
