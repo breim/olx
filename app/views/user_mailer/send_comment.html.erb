@@ -4,14 +4,19 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-  Olá <%= @salesman_name %>
+  Olá <%= @salesman_name %><br/>
   ======================================
-  O usuário <%= @buyer_name %> (<%= @buyer_email %> ) - <%= @buyer_phone %>
+  <p>
+    O usuário <%= @buyer_name %> (<%= @buyer_email %> ) - <%= @buyer_phone %>
   Encaminhou um seguinte comentário no seu produto <a href="http://0.0.0.0:3000/products/@product.id" target="_blank"><%= @product.title %></a>
+  </p>
   
-  <%= @comment.content.html_safe %>
+  <p>
+    <%= @comment.content.html_safe %>
+  </p>
   
-  Obrigado, 
+  Obrigado,
+  <br/>
   
   Equipe XPO 
 </body>
