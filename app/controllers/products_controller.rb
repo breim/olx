@@ -5,7 +5,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    params[:page] = 1 unless params[:page].present?
+    @products = Product.all.order("created_at desc").offset((params[:page].to_i-1) * 20).limit(20)
   end
 
   # GET /products/1

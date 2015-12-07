@@ -1,6 +1,5 @@
 <div id="container">
   <div class="container">
-    <%# t('test') %>
     <% @products.each do |product| %>
     <div class="item thumbnail">
       <%= link_to image_tag(product.image.url(:small)), product, class: 'img-responsive' %>
@@ -10,9 +9,18 @@
         <small class='text-muted'><%= time_ago_in_words(product.created_at) %></small>
       </div>
     </div>
-  </div>
   <% end %>
+  </div>
 </div>
+
+<center>
+  <% if params[:page].to_i > 1 %>
+    <% back_params = {page: (params[:page].to_i-1)}.update({q: params[:q]}) %>
+    <%= link_to "Voltar", root_url(back_params), class: "btn btn-large btn-default" %>
+  <% end %>
+    <% next_params = {page: (params[:page].to_i+1)}.update({q: params[:q]}) %>
+    <%= link_to "Próxima página", root_url(next_params), class: "btn btn-large btn-default" %>
+</center>
 
 <script>
 $("#container").gridalicious();
