@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_user!
+
+	def index
+		@comments = Comment.joins(product: :user).where(products: {user_id: current_user.id} )
+	end
 	
 	def create
 		@product = Product.find(params[:comment][:product_id])
