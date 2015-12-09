@@ -1,0 +1,36 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Produto</th>
+      <th>Valor</th>
+      <th>Usuário</th>
+      <th>Criado em</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= link_to product.title, admin_product_path(product) %></td>
+        <td><%= product.price %></td>
+        <td><%= "#{product.user.try(:name)} - #{product.user.try(:email)}" %></td>
+        <td><%= product.created_at.try(:strftime, '%d/%m/%Y - %T') %></td>
+        <td><%= link_to 'Ver',  admin_product_path(product) %></td>
+        <td><%= link_to 'Editar',  edit_admin_product_path(product) %></td>
+        <td><%= link_to 'Deletar',  admin_product_path(product), method: :delete, data: { confirm: 'Tem certeza ?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<center>
+  <% if params[:page].to_i > 1 %>
+    <% back_params = {page: (params[:page].to_i-1)}.update({q: params[:q]}) %>
+    <%= link_to "Voltar", admin_products_url(back_params), class: "btn btn-large btn-default" %>
+  <% end %>
+    <% next_params = {page: (params[:page].to_i+1)}.update({q: params[:q]}) %>
+    <%= link_to "Próxima página", admin_products_url(next_params), class: "btn btn-large btn-default" %>
+</center>

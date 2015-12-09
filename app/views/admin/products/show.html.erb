@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+    <h3><%= @product.title %> <small><%= time_ago_in_words(@product.created_at) %></small></h3>
+
+    <div class="panel panel-default">
+      <div class="panel-heading"></div>
+      <div class="panel-body">
+        <%= image_tag(@product.image.url(:large)) %>
+        <p>
+          <strong>Descrição:</strong>
+          <%= @product.content %>
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+    <h3><span class="label label-success">R$ <%= @product.price %></span></h3>
+    <div class="panel panel-primary">
+      <div class="panel-heading"></div>
+      <div class="panel-body">
+        <div class="text-muted">
+          <h4><%= icon('user') %> <%= @product.user.try(:name) %></h4>
+          <h4><%= icon('phone') %> <%= @product.user.try(:phone) %></h4>
+          <h4><%= icon('envelope') %> <%= @product.user.try(:mail) %></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
