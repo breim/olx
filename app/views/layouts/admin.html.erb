@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Olx - Admin</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+
+	<%= render 'navbars/navbar' %>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2 col-md-2 col-sm-12">
+				<%= render 'menus/admin' %>
+			</div>
+			<div class="col-lg-10 col-md-10 col-sm-12">
+				
+				<div class="clearfix">
+					<%= link_to "#{icon('reply')} Voltar".html_safe, :back, class: 'btn btn-default pull-right' %>
+					<br/><br/>
+				</div>
+
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title"><%= controller_name.classify %></h3>
+				  </div>
+				  <div class="panel-body">
+				   	<%= yield %>
+				  </div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
