@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   # Admin routes
   get '/admin' => "admin/admin#index", as: :admin 
   namespace :admin do
-  	resources :products, only: %i(index show edit destroy)
+  	resources :products, only: %i(index show edit destroy update)
   end
 end
