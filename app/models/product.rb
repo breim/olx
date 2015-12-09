@@ -34,4 +34,10 @@ class Product < ActiveRecord::Base
 
   # brdinheiro
    usar_como_dinheiro :price
+
+  # Search product
+  def self.search(search)
+    where('title iLIKE ?', "%#{search}%").limit(100)
+  end
+
 end

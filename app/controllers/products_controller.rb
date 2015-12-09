@@ -69,6 +69,10 @@ class ProductsController < ApplicationController
     @products = Product.where(user_id: current_user.id).order("created_at desc").offset((params[:page].to_i-1) * 200).limit(200)
   end
 
+  def search
+    @products = Product.search params[:search]
+  end
+
   private
     def user_login
       unless current_user.present?
